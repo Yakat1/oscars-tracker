@@ -1,0 +1,7 @@
+# Ignore python scripts and messy raw data
+*.py
+*.csv
+*.xlsx
+*.json
+*.pyc
+__pycache__/

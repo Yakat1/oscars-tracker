@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscar List Check</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="container">
+            <h1>Oscar Nominees & Winners Tracker</h1>
+            <p class="subtitle">Track your watchbed films across Academy Awards history</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="controls-section">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search films, nominees, categories...">
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="yearFilter">Year</label>
+                    <select id="yearFilter">
+                        <option value="all">All Years</option>
+                        <!-- Populated via JS -->
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="categoryFilter">Category</label>
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <!-- Populated via JS -->
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="statusFilter">Status</label>
+                    <select id="statusFilter">
+                        <option value="all">All Films</option>
+                        <option value="watched">Watched</option>
+                        <option value="unwatched">Unwatched</option>
+                    </select>
+                </div>
+
+                <div class="stats-card">
+                    <div class="stat-value" id="watchedCount">0</div>
+                    <div class="stat-label">Films Watched</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stat-value" id="totalCount">0</div>
+                    <div class="stat-label">Total Films</div>
+                </div>
+            </div>
+            
+            <div class="random-picker-section">
+                <button id="randomPickerBtn" class="btn primary">Pick Random Unwatched Film</button>
+                <div id="randomResult" class="random-result" style="display: none;"></div>
+            </div>
+        </div>
+
+        <div id="loader" class="loader">Loading data...</div>
+        
+        <div id="filmList" class="film-grid">
+            <!-- Populated via JS -->
+        </div>
+        
+        <div class="pagination">
+            <button id="prevPage" class="btn secondary" disabled>Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button id="nextPage" class="btn secondary" disabled>Next</button>
+        </div>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
