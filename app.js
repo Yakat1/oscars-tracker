@@ -149,6 +149,14 @@ function renderPage() {
         const card = document.createElement('div');
         card.className = `film-card ${isWatched ? 'watched' : ''}`;
         
+        card.addEventListener('click', (e) => {
+            // Ignore clicks if they originated from the watch checkbox
+            if (e.target.closest('.checkbox-container')) {
+                return;
+            }
+            card.classList.toggle('expanded');
+        });
+        
         const showNoms = film.nominations.slice(0, 3);
         const extraNoms = film.nominations.slice(3);
         
