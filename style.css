@@ -303,14 +303,14 @@ select {
 .film-card:hover .extra-noms-list {
     max-height: 1500px; /* arbitrary large max-height */
     opacity: 1;
-    transition-delay: 2s;
+    transition-delay: 1.35s;
 }
 
 .film-card:hover .nom-summary {
     max-height: 0;
     opacity: 0;
     margin-bottom: 0;
-    transition-delay: 2s;
+    transition-delay: 1.35s;
 }
 
 .card-actions {
