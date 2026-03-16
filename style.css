@@ -309,14 +309,14 @@ select {
     max-height: 1500px;
     /* arbitrary large max-height */
     opacity: 1;
-    transition-delay: 0.75s;
+    transition-delay: 0.5s;
 }
 
 .film-card:hover .nom-summary {
     max-height: 0;
     opacity: 0;
     margin-bottom: 0;
-    transition-delay: 0.75s;
+    transition-delay: 0.5s;
 }
 
 .card-actions {
