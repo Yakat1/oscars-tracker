@@ -11,6 +11,7 @@ const searchInput = document.getElementById('searchInput');
 const yearFilter = document.getElementById('yearFilter');
 const categoryFilter = document.getElementById('categoryFilter');
 const statusFilter = document.getElementById('statusFilter');
+const winnerFilter = document.getElementById('winnerFilter');
 const prevPageBtn = document.getElementById('prevPage');
 const nextPageBtn = document.getElementById('nextPage');
 const pageInfo = document.getElementById('pageInfo');
@@ -57,6 +58,7 @@ function init() {
     yearFilter.addEventListener('change', applyFilters);
     categoryFilter.addEventListener('change', applyFilters);
     statusFilter.addEventListener('change', applyFilters);
+    winnerFilter.addEventListener('change', applyFilters);
     
     prevPageBtn.addEventListener('click', () => {
         if (currentPage > 1) {
@@ -98,6 +100,7 @@ function applyFilters() {
     const selectedYear = yearFilter.value;
     const selectedCategory = categoryFilter.value;
     const selectedStatus = statusFilter.value;
+    const selectedWinner = winnerFilter.value;
     
     filteredFilms = allFilms.filter(film => {
         // Search matches title, or any nominee name
@@ -117,8 +120,14 @@ function applyFilters() {
         const matchesStatus = selectedStatus === 'all' || 
             (selectedStatus === 'watched' && isWatched) ||
             (selectedStatus === 'unwatched' && !isWatched);
+        
+        // Winner match
+        const hasWin = film.nominations.some(n => n.winner);
+        const matchesWinner = selectedWinner === 'all' ||
+            (selectedWinner === 'winner' && hasWin) ||
+            (selectedWinner === 'nominee' && !hasWin);
             
-        return matchesSearch && matchesYear && matchesCategory && matchesStatus;
+        return matchesSearch && matchesYear && matchesCategory && matchesStatus && matchesWinner;
     });
     
     currentPage = 1;
