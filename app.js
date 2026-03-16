@@ -154,7 +154,7 @@ function renderPage() {
         
         const formatNom = (n) => `
             <div class="nom-item ${n.winner ? 'winner-nom' : ''}">
-                <span class="nom-category">${n.winner ? '⭐ ' : ''}${n.category} (${n.year})</span>
+                <span class="nom-category">${n.winner ? '⭐ ' : ''}${n.category}</span>
                 ${n.nominee !== film.title ? n.nominee : ''}
                 ${n.character ? '<span class="nom-detail">as ' + n.character + '</span>' : ''}
             </div>
